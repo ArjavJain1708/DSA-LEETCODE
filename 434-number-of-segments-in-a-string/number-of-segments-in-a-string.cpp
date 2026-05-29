@@ -1,5 +1,6 @@
 class Solution {
 public:
+//ARJAV
     int countSegments(string s) {
         int j=0;
         int segment=0;
