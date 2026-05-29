@@ -1,5 +1,6 @@
 class Solution {
 public:
+//ARJAV
     bool repeatedSubstringPattern(string s) {
       string r;
       r+=s;
