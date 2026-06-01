@@ -28,17 +28,7 @@ else{
 }
 }
 
- 
-/*if(a>=0&&nums[a]!=target){
-    while(b<nums.size()&&b>=0&&nums[b]==target){
-        b++;
-    }
-}
-else if(b<nums.size()&&nums[b]!=target){
-    while(a>=0&&nums[a]==target){
-      a--;
-    }
-}*/
+
 while (a >= 0 && nums[a] == target) {
     a--;
 }
