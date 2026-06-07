@@ -22,6 +22,7 @@ public:
                 {  a=j;
                    final.push_back(i);
                    final.push_back(j);
+                   break;
                 }
             }
         }
