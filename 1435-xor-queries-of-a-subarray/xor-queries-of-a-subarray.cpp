@@ -2,20 +2,25 @@ class Solution {
 public:
     vector<int> xorQueries(vector<int>& arr, vector<vector<int>>& queries) {
         int n = arr.size();
-        // Create prefix XOR array of size n + 1
-        vector<int> pref(n + 1, 0);
+        vector<int> pref(n);
         
-        for (int i = 0; i < n; ++i) {
-            pref[i + 1] = pref[i] ^ arr[i];
+        // Initialize prefix array of size n
+        pref[0] = arr[0];
+        for (int i = 1; i < n; ++i) {
+            pref[i] = pref[i - 1] ^ arr[i];
         }
         
         vector<int> result;
-        // Process each query
         for (const auto& q : queries) {
             int left = q[0];
             int right = q[1];
-            // The XOR sum from left to right is pref[right + 1] ^ pref[left]
-            result.push_back(pref[right + 1] ^ pref[left]);
+            
+            // Handle the case where the range starts from the beginning
+            if (left == 0) {
+                result.push_back(pref[right]);
+            } else {
+                result.push_back(pref[right] ^ pref[left - 1]);
+            }
         }
         
         return result;
