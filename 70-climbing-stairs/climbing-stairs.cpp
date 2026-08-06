@@ -12,7 +12,7 @@ int helper(int target,vector<int>&dp){
    // taking 2 step
    int way2=0;
    if(target-2>=0){
-   way2=helper(target-2,dp);
+   way2= helper(target-2,dp);
    }
 return (dp[target]=way1+way2);
 }
