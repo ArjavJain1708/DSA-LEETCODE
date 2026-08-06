@@ -14,6 +14,7 @@ int helper(int target,vector<int>&dp){
    if(target-2>=0){
    way2= helper(target-2,dp);
    }
+   
 return (dp[target]=way1+way2);
 }
     int climbStairs(int n) {
@@ -22,3 +23,15 @@ return (dp[target]=way1+way2);
    return ans; 
    }
 };
+/* if no of steps then 
+   int way1=1+helper(target-1,dp);
+   // taking 2 step
+   int way2=0;
+   if(target-2>=0){
+   way2=1+ helper(target-2,dp);
+   }
+   and 
+    if(target==0){
+      return 0;
+    }
+   */
