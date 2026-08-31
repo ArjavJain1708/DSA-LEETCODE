@@ -25,7 +25,7 @@ void helper(int n,string curr,int count_open,int count_close,vector<string>&resu
         helper(n,curr,count_open,count_close+1,result);
         curr.pop_back();
     }
-   else if(count_open>=n){
+   else if(count_open>=n&&count_close<n){
         curr+=')';
         count_close++;
         helper(n,curr,count_open,count_close,result);
