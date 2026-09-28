@@ -10,7 +10,6 @@ struct Orange {
     int fresh_oranges=0;
        int rows=grid.size();
       int columns=grid[0].size();
-      vector<vector<bool>> visited(rows,vector<bool>(columns,false));
       int dr[]={-1,0,1,0};
       int dc[]={0,-1,0,1};
       queue<Orange> q;
@@ -18,7 +17,6 @@ struct Orange {
         for(int j=0;j<columns;j++){
             if(grid[i][j]==2){
                 q.push({i,j,0});
-                visited[i][j]=true;
             }
             if(grid[i][j]==1){
                 fresh_oranges++;
@@ -43,12 +41,12 @@ struct Orange {
            {
                 if(grid[r+dr[i]][c+dc[i]]==1)
                 {  
-                    if(!visited[r+dr[i]][c+dc[i]])
-                    {   fresh_oranges--;
-                        visited[r+dr[i]][c+dc[i]]=true;
+                    
+                       fresh_oranges--;
+                       
                         grid[r+dr[i]][c+dc[i]]=2;
                         q.push({r+dr[i],c+dc[i],t+1});   
-                    }
+                    
 
                 }
             
