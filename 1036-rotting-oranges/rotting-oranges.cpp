@@ -7,6 +7,7 @@ struct Orange {
 };
     int orangesRotting(vector<vector<int>> &grid) 
  {
+    int fresh_oranges=0;
        int rows=grid.size();
       int columns=grid[0].size();
       vector<vector<bool>> visited(rows,vector<bool>(columns,false));
@@ -18,6 +19,9 @@ struct Orange {
             if(grid[i][j]==2){
                 q.push({i,j,0});
                 visited[i][j]=true;
+            }
+            if(grid[i][j]==1){
+                fresh_oranges++;
             }
         }
       }
@@ -38,9 +42,9 @@ struct Orange {
           if(r+dr[i]<rows&&c+dc[i]<columns&&r+dr[i]>=0&&c+dc[i]>=0)
            {
                 if(grid[r+dr[i]][c+dc[i]]==1)
-                { 
+                {  
                     if(!visited[r+dr[i]][c+dc[i]])
-                    {
+                    {   fresh_oranges--;
                         visited[r+dr[i]][c+dc[i]]=true;
                         grid[r+dr[i]][c+dc[i]]=2;
                         q.push({r+dr[i],c+dc[i],t+1});   
@@ -51,13 +55,9 @@ struct Orange {
             }
         }
     }
-    for(int i=0;i<rows;i++){
-        for(int j=0;j<columns;j++){
-            if(grid[i][j]==1){
-                return -1;
-            }
-        }
-    }
+   if(fresh_oranges!=0){
+    return -1;
+   }
 
  return max_t;}
 
